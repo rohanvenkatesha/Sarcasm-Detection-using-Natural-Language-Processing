@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loading Page Example</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      background-color: black; /* Set a black background for the entire page */
+      color: white; /* Set text color to white */
+    }
+    #loading {
+      display: none;
+      font-size: 48px; /* Increased font size */
+      margin: 0;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      background-color: black;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      animation: fadeIn 1s ease-in-out; /* Added fade-in animation */
+    }
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+    #content {
+      display: none;
+      font-size: 28px; /* Increased font size */
+    }
+  </style>
+</head>
+<body>
+
+  <div id="loading">Sarcasm Loading........😂</div>
+
+  <div id="content"> <!-- Your actual content goes here -->
+    <p>This is the content that will be displayed after loading.</p>
+  </div>
+
+  <script>
+    // Simulate loading delay
+    function simulateLoading() {
+      document.getElementById('loading').style.display = 'block';
+      setTimeout(function() {
+        document.getElementById('loading').style.display = 'none';
+        document.getElementById('content').style.display = 'block';
+      }, 2000); // Adjust the delay time (in milliseconds) as needed
+    }
+
+    // Call the loading function when the page is fully loaded
+    window.onload = function() {
+      simulateLoading();
+    };
+  </script>
+
+</body>
+</html>
